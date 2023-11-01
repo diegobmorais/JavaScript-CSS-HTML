@@ -1,0 +1,201 @@
+
+
+/* Estilos globais */
+body {
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #fff;
+  background-color: #000;
+}
+
+/* Estilos do cabeçalho */
+header {
+  height: 300px; 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url(img/banner.jpg);
+  }
+
+  .img-banner img{
+    width: 500px;
+    height: 300px;
+    padding-block: 50px;
+  }
+
+#send{
+  background-color: rgb(255, 0, 0);   
+  border: 1px solid rgb(255, 0, 0);   
+  font-size: 14px;
+  color: #fff;
+  padding: 10px;
+  margin-left: 20px;
+  border-radius: 10px;
+  width: 100px  ;
+  font-weight: bold;
+}
+#send:hover{
+  color: rgb(255, 0, 0);   
+  background-color: #fff;
+  font-weight: bold;
+}
+
+#idioma{
+     width: 150px;
+     height: 30px;
+     font-size: 14px;
+     font-weight: bold;
+     background:transparent;
+     padding-left: 10px;
+     color: #fff;
+     border: 2px solid;
+}
+
+
+#go{
+  background-color: rgb(255, 0, 0);   
+  border: 1px solid rgb(255, 0, 0);   
+  font-size: 14px;
+  color: #fff;
+  padding: 10px;
+  margin-left: 20px;
+  border-radius: 10px;
+  width: 100px  ;
+  font-weight: bold;
+}
+#go:hover{
+  color: rgb(255, 0, 0);   
+  background-color: #fff;
+  font-weight: bold;
+}
+
+#email{
+  background-color: rgb(205, 205, 205);   
+  border: 1px solid rgb(81, 77, 77);   
+  font-size: 14px;
+  color: #fff;
+  padding: 10px;
+  margin-left: 20px;
+  width: 300px;
+  height: 20px;
+  
+
+}
+
+
+/* Estilos da section 1 */
+
+.hero-text{
+  font-size: 24px;
+  text-align: center;
+  margin-top: 100px;
+}
+.hero-text p{
+  font-size: 20px;
+  text-align: center;
+  line-height: 10px;
+}
+
+.movie-cards{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Estilos da section 2-3-4-5 */
+.sections{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 150px;
+  
+}
+
+.side-bar-right{
+  margin-right: 100px;
+}
+.side-bar-left{
+  margin-left: 100px;
+  
+}
+
+.side-bar-left p{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  max-width: 500px;
+}
+.side-bar-rihgt p{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  max-width: 500px;
+}
+.sections .side-bar-right{
+  margin-left: 30px;
+}
+h2{
+  font-size: 52px;
+  text-align: left;
+ 
+}
+img{
+
+  width: 450px ;
+  margin-left: 20px;
+}
+
+main hr{
+  
+    border: 1px solid rgb(32, 31, 31);
+    color: #464646;
+    background-color: #3f3e3e;
+    height: 6px;
+    max-width: auto;
+    margin-top: 30px;
+  
+  }
+
+/* Estilos do rodape */
+.footer-list{
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  text-align: left;
+}
+ul{
+  list-style-type: none;
+}
+  a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 20px;
+  }
+
+a:hover {
+	text-decoration: underline;
+	color: rgb(249, 249, 249)
+	}
+
+
+footer{
+  text-align: center;
+  font-size: 12px;
+ 
+}
+
+
+
+
+
+.cp-right{
+  text-align: center;
+  font-size: 12px;
+  margin-top: 80px;
+}
