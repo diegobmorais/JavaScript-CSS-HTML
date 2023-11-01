@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta de Férias</title>
+
+  <style>
+    *{
+      margin: 0%;
+      padding: 0%;
+    }
+    body{
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: whitesmoke; 
+      
+    }
+    .cartaFerias{
+        margin-bottom: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+      
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        padding: 50px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px grey;            
+    }    
+
+    p{
+      font-size: 15px;
+      font-weight: bold;
+      color: #085a73;
+      margin: 5px;
+    }
+ 
+    .button{      
+      border-radius: 8px;
+      font-size: 14px;
+      height: 35px;
+      width: 140px;
+      background-color:rgb(168, 206, 206);
+      font-weight: bold;
+      border-color: rgb(168, 206, 206);
+      color: #387a8b;
+      padding: 5px;    
+    }
+
+    #text{
+        font-size: 14px;
+        line-height: 30px;
+    }
+    .letter{
+      width: 300px;
+      height: 300px;
+      }
+  
+  </style>
+    
+
+</head>
+<body>
+  <main class="container">
+    <div class="cartaFerias">
+
+        <div class="letter">
+          <p id="texto"></p>        
+        </div>
+        <div class="new-button">     
+          <input type="button" class="button" id="new-generate" onclick="gerarNovaCarta()"  value="Gerar nova carta"/>
+        </div>
+   </div>            
+                          
+  </main>
+  <script>
+      var urlParametro = new URLSearchParams(window.location.search);
+      var parametro_nome = urlParametro.get('nome');
+      var parametro_data_i = urlParametro.get('data_i');
+      var parametro_data_f = urlParametro.get('data_f');   
+      
+      var dataHoje = new Date().toLocaleDateString()
+
+
+        var resultadoTexto = document.getElementById('texto'); // escreve no campo 'text' os dados contidos na variavel resultadoTexto
+        resultadoTexto.innerHTML = "Caro(a) responsável<br> Gostaria de solicitar minhas férias: <br><br> Nome do funcionário: "+parametro_nome+"<br>Data de inicio: "+parametro_data_i+"<br>Data final: "+parametro_data_f+"<br><br> Agradeço a atenção!! <br> Atenciosamente, "+parametro_nome+"<br><br> Gerado em "+dataHoje 
+        
+
+      function gerarNovaCarta(){ //limpa os campos preechidos       
+
+          window.location.href = "./cartaFerias.html";
+      }
+
+ </script>
+
+ </body>
+</html>

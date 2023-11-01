@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Salario</title>
+    <style>
+      body {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: whitesmoke;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        padding: 50px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px grey;
+      }
+      .imagem-salario {
+        width: 150px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      input {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        min-width: 200px;
+        text-align: center;
+        margin-bottom: 8px;
+      }
+      input:focus {
+        outline: 2px solid lightskyblue;
+        text-align: center;
+      }
+      .formulario {
+        margin-bottom: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .button {
+        background-color: #6558f5;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-top: 15px;
+        width: 40%;
+        box-shadow: 0 2px 5px rgb(10, 10, 10);
+      }
+      button:hover {
+        background-color: #5a4fd7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Cálculo de Salario</h2>
+      <img src="https://cdn-icons-png.flaticon.com/512/5525/5525464.png" alt="Ícone IMC" class="imagem-salario" />
+      <div class="formulario">
+        
+        <input type="number" id="salario" placeholder="Salario bruto" />        
+        
+        <button onclick="calcularSalario()" class="button">Calcular</button>
+
+      </div>
+    </div>
+
+    <script>
+      
+
+      function calcularSalario(){
+        var salarioFuncionario = parseFloat(document.getElementById('salario').value)
+       
+        function calcularImpostoRenda(salarioFuncionario){
+                      
+          if(salarioFuncionario <= 1903.98) {
+            impostoRenda = 0
+          } else if(salarioFuncionario >= 1903.99 && salarioFuncionario <= 2826.65 ) {
+            impostoRenda = (salarioFuncionario * 0.075 ) - 142.80
+          } else if(salarioFuncionario >= 2826.66 && salarioFuncionario <= 3751.05) {
+            impostoRenda = ( salarioFuncionario * 0.15) - 354.80
+          } else if(salarioFuncionario >= 3751.06 && salarioFuncionario <= 4664.68) {
+            impostoRenda =( salarioFuncionario * 0.225) - 636.13
+          } else {
+            impostoRenda = (salarioFuncionario * 0.275) - 869.36
+          }
+            return impostoRenda = impostoRenda.toFixed(2)
+          }
+
+          function calcularInss(salarioFuncionario){         
+
+          if (salarioFuncionario <= 1302) {
+                  inss = salarioFuncionario * 0.075 // 7.5%
+              } else if (salarioFuncionario >= 1302.01 && salarioFuncionario <= 2571.29) {
+                  inss = salarioFuncionario * 0.09 // 9%
+              } else if (salarioFuncionario >= 2571.30 && salarioFuncionario <= 3856.94) {
+                  inss = salarioFuncionario * 0.12 // 12%
+              } else {
+                  inss = salarioFuncionario * 0.14 //14%
+              }            
+            
+            return inss = inss.toFixed(2)
+          }
+
+          function calcularSalarioLiquido(salarioFuncionario, impostoRenda, inss){
+            var resultadoSalarioLiquido = salarioFuncionario - impostoRenda - inss
+
+            return resultadoSalarioLiquido = resultadoSalarioLiquido.toFixed(2)
+          }
+
+          var impostoRenda = calcularImpostoRenda(salarioFuncionario)
+          var inss = calcularInss(salarioFuncionario)
+          var resultadoSalarioLiquido = calcularSalarioLiquido(salarioFuncionario, impostoRenda, inss)
+
+          var urlDestino = './resultadoSalario.html?impostoRenda=' + encodeURIComponent(impostoRenda)+'&inss=' + encodeURIComponent(inss)+'&resultadoSalarioLiquido=' + encodeURIComponent(resultadoSalarioLiquido);  
+    
+          // redireciona para outra página */
+          
+         window.location.href = urlDestino;
+      }
+
+  </script>
+  </body>
+</html>

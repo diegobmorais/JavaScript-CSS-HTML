@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculo de frete</title>
+
+  <style>
+    *{
+      margin: 0%;
+      padding: 0%;
+    }
+    body{
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: whitesmoke; 
+      
+    }
+    .pag2{
+        margin-bottom: 10px;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;  
+      
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+        height: 200px;
+        padding: 50px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px grey;            
+    }    
+
+    p{
+      font-size: 18px;
+      font-weight: bold;
+      color: #085a73;
+      margin: 5px;
+    }
+
+    .imagem-frete {
+        width: 50px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+ 
+    .button{      
+        background-color: #6558f5;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-top: 15px;
+        width: 100%;
+        box-shadow: 0 2px 5px rgb(10, 10, 10); 
+    }
+
+    #text{
+        font-size: 14px;
+        line-height: 30px;
+    }
+    .conteudo{
+      width: 300px;
+      height: 40px;
+      }
+  
+  </style>
+    
+
+</head>
+<body>
+  <main class="container">
+    <h2>Calculo do frete</h2>
+    <div class="pag2">
+        <div>            
+            <img src="https://ajpeletroinfo.com.br/wp-content/uploads/2019/04/frete-768x438.png" alt="Ícone frete" class="imagem-frete" />                   
+        </div>
+        <div class="conteudo">
+            <p id="texto"></p>
+        </div>        
+   </div>
+        <div class="new-button">     
+            <input type="button" class="button" id="new-generate" onclick="calcularNovoFrete()"  value="Calcular novo frete"/>
+        </div>      
+                          
+  </main>
+  <script>
+      var urlParametro = new URLSearchParams(window.location.search);
+      var parametro_frete = urlParametro.get('custoFrete');
+      
+        var resultadoTexto = document.getElementById('texto'); // escreve no campo 'texto' os dados contidos na variavel resultadoTexto
+        resultadoTexto.innerHTML = "O valor do frete è de R$"+parametro_frete;
+
+      function calcularNovoFrete(){ //limpa os campos preechidos       
+
+          window.location.href = "./frete.html";
+      }
+
+ </script>
+
+ </body>
+</html>

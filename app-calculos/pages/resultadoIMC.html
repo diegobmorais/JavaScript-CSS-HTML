@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMC</title>
+    <style>
+      body {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: whitesmoke;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        height: 300px;
+        padding: 50px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px grey;
+      }
+      .imagem-imc {
+        width: 150px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      
+      .formulario {
+        margin-bottom: 10px;
+        width: 100%;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .button {
+        background-color: #6558f5;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-top: 100px;
+        width: 45%;
+        box-shadow: 0 2px 5px rgb(10, 10, 10);
+      }
+      button:hover {
+        background-color: #5a4fd7;
+      }
+      #resultado-peso{
+        width: 70%;
+        padding: 6px;
+        border: 1px solid grey;
+        border-radius: 15px;
+        box-sizing: border-box;
+        text-align: center;
+        min-width: 200px;
+        text-align: center;
+        margin-top: 20px;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Resultado</h2>      
+      <div class="formulario">
+        
+        <div id="resultado-imc"></div>        
+        <div id="resultado-peso"></div>
+        
+        <button onclick="calcularNovamente()" class="button">Calcular Novamente</button>
+      </div>
+    </div>
+    <script>
+
+      var urlParametro = new URLSearchParams(window.location.search);
+      var parametro_imc = urlParametro.get('imc');   
+
+      var resultadoIMC = document.getElementById('resultado-imc');
+      var resultadoPeso = document.getElementById('resultado-peso');
+
+          if (parametro_imc <= 18.5) {            
+            resultadoIMC.innerText = 'Seu ImC: '+parametro_imc            
+            resultadoPeso.innerText = "Você está abaixo do peso!"
+            alterarCorOk();
+          }
+          else if (parametro_imc >= 18.6 && parametro_imc  <= 24.9) {
+            resultadoIMC.innerText = 'Seu ImC: '+parametro_imc            
+            resultadoPeso.innerText = "Você está com peso ideal!"
+            alterarCorPerfeito();
+          }
+          else if (parametro_imc >= 25.0 && parametro_imc  <= 29.9) {
+            resultadoIMC.innerText = 'Seu ImC: '+parametro_imc            
+            resultadoPeso.innerText = "Você está levemente acima do peso!"
+            alterarCorAtencao();
+          }
+          else if (parametro_imc >= 30 && parametro_imc  <= 34.9) {
+            resultadoIMC.innerText = 'Seu ImC: '+parametro_imc            
+            resultadoPeso.innerText = "Você está com Obesidade Grau I!"
+            alterarCorPerigo();
+          }
+          else if (parametro_imc >= 35 && parametro_imc  <= 39.9) {
+            resultadoIMC.innerText = 'Seu ImC: '+parametro_imc            
+            resultadoPeso.innerText = "Você está com Obesidade Grau II!"
+            alterarCorPerigo();
+          } else {
+            resultadoIMC.innerText = 'Seu ImC: '+parametro_imc            
+            resultadoPeso.innerText = "Você está com Obesidade Grau III!"
+            alterarCorPerigo();
+          }
+
+    function calcularNovamente(){      
+      // redireciona para outra página      
+      window.location.href = "./imc.html";
+  }
+  function alterarCorOk() {
+      var elemento = document.getElementById("resultado-peso");
+      elemento.style.backgroundColor = "#399ee6";
+      elemento.style.border = "2px, #399ee6"; 
+      elemento.style.boxShadow = '0 2px 5px rgb(10, 10, 10)';
+    }
+    function alterarCorPerfeito() {
+      var elemento = document.getElementById("resultado-peso");
+      elemento.style.backgroundColor = "#29914a";
+      elemento.style.border = "2px, #29914a"; 
+      elemento.style.boxShadow = '0 2px 5px rgb(10, 10, 10)';
+    }
+    function alterarCorAtencao() {
+      var elemento = document.getElementById("resultado-peso");
+      elemento.style.backgroundColor = "#f5dc3b";
+      elemento.style.border = "2px, #f5dc3b"; 
+      elemento.style.boxShadow = '0 2px 5px rgb(10, 10, 10)';
+    }
+    function alterarCorPerigo() {
+      var elemento = document.getElementById("resultado-peso");
+      elemento.style.backgroundColor = "#db0214";
+      elemento.style.border = "2px, #db0214"; 
+      elemento.style.boxShadow = '0 2px 5px rgb(10, 10, 10)';
+    }
+
+</script>
+  </body>
+</html>

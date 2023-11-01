@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMC</title>
+    <style>
+      body {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: whitesmoke;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        padding: 50px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px grey;
+      }
+      .imagem-imc {
+        width: 150px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      input {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        min-width: 200px;
+        text-align: center;
+        margin-bottom: 8px;
+      }
+      input:focus {
+        outline: 2px solid lightskyblue;
+        text-align: center;
+      }
+      .formulario {
+        margin-bottom: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .button {
+        background-color: #6558f5;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-top: 15px;
+        width: 40%;
+        box-shadow: 0 2px 5px rgb(10, 10, 10);
+      }
+      button:hover {
+        background-color: #5a4fd7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Cálculo de IMC</h2>
+      <img src="https://play-lh.googleusercontent.com/ouL1lfSP_CyUgb5OUvI51jG3cevMfulA1GZGtS63r3Xfa8STYiIxq6KiY3PkMc6PcTk" alt="Ícone IMC" class="imagem-imc" />
+      <div class="formulario">
+        
+        <input type="number" id="peso" placeholder="Peso" />        
+        <input type="number" id="altura" placeholder="Altura" />
+        <button onclick="calcularIMC()" class="button">Calcular</button>
+
+      </div>
+    </div>
+
+    <script>
+      function calcularIMC(){
+        // calculo imc
+          var peso = parseFloat(document.getElementById('peso').value)
+
+          var altura = parseFloat(document.getElementById('altura').value)
+
+          altura = altura / 100 // passa valores para cm
+          var imc =  peso / (altura * altura)
+          imc = imc.toFixed(1); // pegar apenas 2 casa decimais
+
+          var parametroIMC = imc; // valor que sera enviado para outra pag via url
+          var urlDestino = './resultadoIMC.html?imc=' + encodeURIComponent(parametroIMC);  // '?' indica passagem de parametro
+    
+          // redireciona para outra página */
+          
+         window.location.href = urlDestino;
+      }
+
+  </script>
+  </body>
+</html>

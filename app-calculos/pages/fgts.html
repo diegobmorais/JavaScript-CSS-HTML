@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../FGTS/styles.css" />
+
+    <title>Calculadora FGTS</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif, arial;
+   
+    margin: 0;
+    padding: 0;
+    
+    box-sizing: border-box;
+}
+
+#container {
+    width: 100%;
+    height: 100vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#calculator {
+    background-color: #0B1E33;
+    color: white;
+    
+    padding: 40px;
+    gap: 25px;
+    border-radius: 8px;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+#calculator h1 {
+    font-size: 30px;
+}
+
+#input_box {
+    display: flex;
+    flex-direction: column;
+   
+    gap: 25px;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+}
+
+.input-field label {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.input-field input {
+    border: none;
+    font-size: 20px;
+    
+    padding: 5px;
+}
+
+#total {
+    font-size: 16px;
+    
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    
+    gap: 10px;
+}
+
+#calculate {
+    border: none;
+    padding: 10px;
+   
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 4px;
+    
+    background-color: #FFBA42;
+}
+
+#calculate-again {
+    width: 100%;
+    height: 8vh;
+    
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 4px;
+    
+    background-color: #FFBA42;
+}
+    </style>
+</head>
+<body>
+  <main id="container">
+    <div id="calculator">
+
+      <h1 id="title">
+        Calculadora de FGTS
+      </h1>
+
+      <div id="input_box">
+        <div class="input-field">
+          <label id="salario" for="value">Salário Bruto:</label>
+            <input type="number" id="value">
+        </div>
+      </div>
+
+      <div id="result" hidden>
+        <h2>Resultado:</h2>
+          <span id="total">
+            R$ 0,00
+          </span>
+
+          <span id="anual">
+            R$ 0,00
+          </span>
+
+          <button id="calculate-again" type="button" onclick="clicarNovamente()">
+            Calcular Novamente
+          </button>
+      </div>
+
+        <button id="calculate" type="button" onclick="clicar()">
+          Calcular
+        </button>
+        
+      </div>
+    </div>
+  </main>
+
+  <script>
+      function clicar(){
+    var value = document.getElementById('value').value;
+    
+    var total = value * 0.08;
+    var anual = total * 12;
+
+        document.getElementById('total').innerHTML = ("FGTS mensal: R$ " + total.toFixed(2).replace('.', ','));
+        document.getElementById('anual').innerHTML = ("FGTS anual: R$ " + anual.toFixed(2).replace('.', ','));
+        document.getElementById('result').hidden = false
+        document.getElementById('calculate').hidden = true
+        document.getElementById('salario').hidden = true
+        document.getElementById('value').hidden = true
+        document.getElementById('title').hidden = true
+};
+
+function clicarNovamente(){
+    var value = document.getElementById('value').value;
+    
+    var total = value * 0.08;
+    var anual = total * 12;
+
+        document.getElementById('total').innerHTML = ("FGTS mensal: R$ " + total.toFixed(2).replace('.', ','));
+        document.getElementById('anual').innerHTML = ("FGTS anual: R$ " + anual.toFixed(2).replace('.', ','));
+        document.getElementById('result').hidden = true
+        document.getElementById('calculate').hidden = false
+        document.getElementById('salario').hidden = false
+        document.getElementById('value').hidden = false
+        document.getElementById('title').hidden = false
+}    
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Salario</title>
+    <style>
+      body {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: whitesmoke;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        height: 300px;
+        padding: 50px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px grey;
+      }
+      .imagem-salario {
+        width: 150px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      
+      .formulario {
+        margin-bottom: 10px;
+        width: 100%;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .button {
+        background-color: #6558f5;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-top: 100px;
+        width: 45%;
+        box-shadow: 0 2px 5px rgb(10, 10, 10);
+      }
+      button:hover {
+        background-color: #5a4fd7;
+      }
+      .resultado{
+        width: 60%;
+        padding: 6px;
+        border: 1px solid grey;
+        border-radius: 15px;
+        background-color: #d9d6fd;
+        box-sizing: border-box;
+        text-align: center;        
+        text-align: center;
+        margin-top: 10px;
+        line-height: 30px;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Resultado</h2>      
+            <div class="formulario">
+                <div class="resultado">
+                <div id="resultado-IR"></div>        
+                <div id="resultado-INSS"></div>
+                <div id="resultado-salario"></div>
+            </div>        
+        <button onclick="calcularNovamente()" class="button">Calcular Novamente</button>
+      </div>
+    </div>
+    <script>
+
+      var urlParametro = new URLSearchParams(window.location.search);
+      var parametro_impostoRenda = urlParametro.get('impostoRenda'); 
+      var parametro_inss = urlParametro.get('inss'); 
+      var parametro_salarioLiquido = urlParametro.get('resultadoSalarioLiquido');   
+
+      var resultadoIR = document.getElementById('resultado-IR');
+      var resultadoINSS= document.getElementById('resultado-INSS');
+      var resultadoSalario = document.getElementById('resultado-salario');
+
+                     
+            resultadoIR.innerText = 'Imposto de Renda - R$'+ parametro_impostoRenda   
+            resultadoINSS.innerText = 'Contribuição INSS - R$'+ parametro_inss
+            resultadoSalario.innerText = 'Salario a receber - R$'+ parametro_salarioLiquido
+            
+           
+    function calcularNovamente(){      
+      // redireciona para outra página      
+      window.location.href = "./calculadoraSalario.html";
+  }  
+
+</script>
+  </body>
+</html>

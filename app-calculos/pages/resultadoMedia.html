@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media</title>
+    <style>
+      body {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: whitesmoke;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        height: 300px;
+        padding: 50px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px grey;
+      }
+      .imagem-imc {
+        width: 150px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      
+      .formulario {
+        margin-bottom: 10px;
+        width: 100%;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .button {
+        background-color: #6558f5;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-top: 100px;
+        width: 45%;
+        box-shadow: 0 2px 5px rgb(10, 10, 10);
+      }
+      button:hover {
+        background-color: #5a4fd7;
+      }
+      #resultado-media{
+        width: 70%;
+        height: 50px;
+        padding-top: 15px;
+        border: 1px solid grey;
+        border-radius: 15px;
+        box-sizing: border-box;
+        text-align: center;
+        min-width: 200px;
+        text-align: center;
+        margin-top: 20px;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Resultado</h2>      
+      <div class="formulario">
+        
+        <div id="resultado-media"></div>                
+        
+        <button onclick="calcularNovamente()" class="button">Calcular Novamente</button>
+      </div>
+    </div>
+    <script>
+
+      var urlParametro = new URLSearchParams(window.location.search);
+      var parametro_media = urlParametro.get('media');   
+
+      var resultadoMedia = document.getElementById('resultado-media');      
+
+          if (parametro_media <= 6) {            
+            resultadoMedia.innerText = 'Recuperação - '+parametro_media            
+            alterarCorRecuperacao();
+            }
+          else {
+            resultadoMedia.innerText = 'APROVADO!!!! - '+parametro_media
+            alterarCorAprovado();
+          }
+
+    function calcularNovamente(){      
+      // redireciona para outra página      
+      window.location.href = "./media.html";
+  }
+  function alterarCorAprovado() {
+      var elemento = document.getElementById("resultado-media");
+      elemento.style.backgroundColor = "green";
+      elemento.style.border = "2px, #399ee6"; 
+      elemento.style.boxShadow = '0 2px 5px rgb(10, 10, 10)';
+    }
+    function alterarCorRecuperacao() {
+      var elemento = document.getElementById("resultado-media");
+      elemento.style.backgroundColor = "red";
+      elemento.style.border = "2px, #29914a"; 
+      elemento.style.boxShadow = '0 2px 5px rgb(10, 10, 10)';
+    }  
+
+</script>
+  </body>
+</html>

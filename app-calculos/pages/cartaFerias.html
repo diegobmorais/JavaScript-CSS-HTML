@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta de Férias</title>
+
+  <style>
+    *{       
+       margin: 0%;
+       padding: 0;
+    }
+    body{      
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: whitesmoke;     
+            
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        padding: 50px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px grey;
+      
+    }
+    .formulario{           
+        margin-bottom: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;               
+    }    
+
+    .grid-date{
+      display: flex;
+      flex-direction: row;
+      margin-top: 20px;
+    }
+    p{
+      font-size: 15px;
+      font-weight: bold;
+      color: #085a73;
+      margin: 5px;
+    }
+        
+    #nome{
+      border-color: rgb(168, 206, 206);
+      background-color: #fff;
+      border-radius: 5px;
+      font-size: 14px;
+      width: 250px;
+      height: 30px;
+      margin: 5px;
+    }
+    .date{           
+      border-color: rgb(168, 206, 206);
+      background-color: #fff;
+      border-radius: 5px;
+      font-size: 14px;
+      height: 20px;
+      margin: 5px;
+     
+      
+    }
+    .button{      
+      border-radius: 8px;
+      font-size: 14px;
+      height: 35px;
+      width: 140px;
+      background-color:rgb(168, 206, 206);
+      font-weight: bold;
+      border-color: rgb(168, 206, 206);
+      color: #387a8b;
+      padding: 5px;    
+    }
+    #botao{
+      margin-top: 50px;
+    }
+
+  
+  </style>
+    
+
+</head>
+<body>
+  <main class="container">
+    <div class="formulario">
+
+       <div>
+        <p>Nome do funcionário</p>
+        <input type="text" id="nome" placeholder=" Nome completo" maxlength="50" autofocus required >
+       </div>
+          <div class="grid-date">
+             <div>
+              <p>Data de início</p>
+              <input type="date" class="date" id="date-i" required >
+              </div>
+
+              <div>  
+              <p>Data final</p>
+              <input type="date" class="date" id="date-f" required >
+              </div>
+          </div>  
+          <div id="botao">
+           <input type="submit" class="button" onclick="gerarCarta()" id="generate" value="Gerar Carta"/>
+          </div>             
+    </div>     
+  </main>
+  <script>
+    
+    function gerarCarta(){
+      
+        nome = document.getElementById('nome').value // recupera valores digitados
+        data_i = document.getElementById('date-i').value
+        data_f = document.getElementById('date-f').value          
+       
+          var parametroNome = nome; // valor que sera enviado para outra pag via url
+          var parametroData_i = data_i;
+          var parametroData_f = data_f;
+          var urlDestino = './resultadoCartaFerias.html?nome=' + encodeURIComponent(parametroNome)+'&data_i='+encodeURIComponent(parametroData_i)+'&data_f='+encodeURIComponent(parametroData_f);  // '?' indica passagem de parametro    
+
+          window.location.href = urlDestino;
+      }
+
+              
+
+ </script>
+
+ </body>
+</html>

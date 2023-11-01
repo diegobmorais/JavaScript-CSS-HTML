@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lachonete Online</title>
+    <style>
+      body {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: whitesmoke;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+        padding: 50px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px grey;
+      }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      .tabela{
+        margin-bottom: 20px;
+      }
+      .imagem-lanchonete{
+        width: 150px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      input {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        min-width: 200px;
+        text-align: center;
+        margin-bottom: 8px;
+      }
+      input:focus {
+        outline: 2px solid lightskyblue;
+        text-align: center;
+      }
+      .formulario {
+        margin-bottom: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .button {
+        background-color: #6558f5;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-top: 15px;
+        width: 40%;
+        box-shadow: 0 2px 5px rgb(10, 10, 10);
+      }
+      button:hover {
+        background-color: #5a4fd7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Lanchonete Online</h2>
+
+      <img src="https://d293isj6nw1n53.cloudfront.net/images/website/segments/subsegments/lanchonetes.png" alt="Ícone lanchonete" class="imagem-lanchonete" />
+      <div class="tabela">
+        <table>
+            <tr>
+              <td>Código</td>
+              <td>Produto</td>
+              <td>Valor</td>
+            </tr>
+            <tr>
+              <td>1123</td>
+              <td>Hambúrguer</td>
+              <td>12.00</td>
+            </tr>
+            <tr>
+              <td>1431</td>
+              <td>Sanduíche de Pernil</td>
+              <td>9.00</td>
+            </tr>
+            <tr>
+              <td>1121</td>
+              <td>Bauru</td>
+              <td>15.00</td>
+            </tr>
+            <tr>
+              <td>1404</td>
+              <td>Sanduíche de Mortadela</td>
+              <td>34.90</td>
+            </tr>
+        </table>
+      </div>
+      <div class="formulario">        
+        <input type="number" id="cod" placeholder="Codigo do produto" />
+        <input type="number" id="quantidade" placeholder="Quantidade" />          
+        
+        <button onclick="calcularValor()" class="button">Calcular</button>
+      </div>
+
+    </div>
+
+    <script>
+      
+      function calcularValor(){
+          var codigo = parseFloat(document.getElementById('cod').value)
+          var quantidade = parseFloat(document.getElementById('quantidade').value)
+
+          switch (codigo) {
+              case 1123: {
+                calcularPreco(12.00, quantidade)
+                break;
+              }
+              case 1431: {
+                calcularPreco(9.00, quantidade)
+                break;
+              }
+              case 1121:
+                calcularPreco(15.00, quantidade)
+                break;             
+              case 1404: {
+                calcularPreco(34.90, quantidade)
+                break;
+              }              
+              default:
+                alert("Código inválido");
+            }
+       
+            function calcularPreco(Valor, quantidade){
+              valorTotal = Valor * quantidade       
+              
+              return valorTotal;
+            }
+             
+
+          var urlDestino = './resultadoLanchonete.html?valorTotal=' + encodeURIComponent(valorTotal)+'&quantidade=' + encodeURIComponent(quantidade)+'&cod=' + encodeURIComponent(codigo);
+    
+          // redireciona para outra página */
+          
+         window.location.href = urlDestino;
+      }
+
+  </script>
+  </body>
+</html>
