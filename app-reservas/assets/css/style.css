@@ -1,0 +1,47 @@
+*{margin: 0px;
+    padding: 0px;}
+    
+    body{
+        margin: 1000px;
+    }
+    .container-table{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 20%;
+            
+    }
+    
+    .tabela{
+        width: 100px;
+        height: 200px;       
+        
+    }
+    
+    h1{
+        font-size: 20px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color:rgb(108, 108, 108);
+        font-weight: bold;
+        width: 100%;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        
+    }
+    
+    .btn-div{
+        width: 80%;   
+        display: flex;
+        flex-direction: row;
+        margin-left: 20%;
+        margin-bottom: 20px;    
+    }
+    #btn-sair, #btn-reservar{
+        width: 100px;
+        height: 30px;
+        line-height: 5px;
+    }
